@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000001 /* MozaicWindowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000001; };
+		A10000002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000002; };
+		A10000003 /* MosaicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000003; };
+		A10000004 /* OverlayConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000004; };
+		A10000005 /* ScreenCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000005; };
+		A10000006 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000006; };
+		A10000007 /* FilterProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000007; };
+		A10000008 /* OverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000008; };
+		A10000009 /* OverlayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000009; };
+		A10000010 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010; };
+		A10000011 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000011; };
+		A10000012 /* OverlayContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000012; };
+		A10000013 /* NSScreen+DisplayID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000013; };
+		A10000014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B10000014; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B10000001 /* MozaicWindowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MozaicWindowApp.swift; sourceTree = "<group>"; };
+		B10000002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B10000003 /* MosaicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicType.swift; sourceTree = "<group>"; };
+		B10000004 /* OverlayConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayConfiguration.swift; sourceTree = "<group>"; };
+		B10000005 /* ScreenCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureService.swift; sourceTree = "<group>"; };
+		B10000006 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		B10000007 /* FilterProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProcessor.swift; sourceTree = "<group>"; };
+		B10000008 /* OverlayWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindow.swift; sourceTree = "<group>"; };
+		B10000009 /* OverlayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContentView.swift; sourceTree = "<group>"; };
+		B10000010 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		B10000011 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		B10000012 /* OverlayContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayContextMenu.swift; sourceTree = "<group>"; };
+		B10000013 /* NSScreen+DisplayID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+DisplayID.swift"; sourceTree = "<group>"; };
+		B10000014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B10000015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B10000016 /* MozaicWindow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MozaicWindow.entitlements; sourceTree = "<group>"; };
+		C10000001 /* MozaicWindow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MozaicWindow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D10000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E10000001 = {
+			isa = PBXGroup;
+			children = (
+				E10000002 /* MozaicWindow */,
+				E10000009 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E10000002 /* MozaicWindow */ = {
+			isa = PBXGroup;
+			children = (
+				E10000003 /* App */,
+				E10000004 /* Models */,
+				E10000005 /* Services */,
+				E10000006 /* Processing */,
+				E10000007 /* Windows */,
+				E10000008 /* Views */,
+				E1000000A /* Extensions */,
+				E1000000B /* Resources */,
+				B10000015 /* Info.plist */,
+				B10000016 /* MozaicWindow.entitlements */,
+			);
+			path = MozaicWindow;
+			sourceTree = "<group>";
+		};
+		E10000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B10000001 /* MozaicWindowApp.swift */,
+				B10000002 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E10000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B10000003 /* MosaicType.swift */,
+				B10000004 /* OverlayConfiguration.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E10000005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B10000005 /* ScreenCaptureService.swift */,
+				B10000006 /* PermissionManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E10000006 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				B10000007 /* FilterProcessor.swift */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
+		E10000007 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				B10000008 /* OverlayWindow.swift */,
+				B10000009 /* OverlayContentView.swift */,
+				B10000010 /* WindowManager.swift */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
+		E10000008 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B10000011 /* MenuBarView.swift */,
+				B10000012 /* OverlayContextMenu.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E10000009 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C10000001 /* MozaicWindow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1000000A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B10000013 /* NSScreen+DisplayID.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E1000000B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B10000014 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F10000001 /* MozaicWindow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = G10000003 /* Build configuration list for PBXNativeTarget "MozaicWindow" */;
+			buildPhases = (
+				F10000002 /* Sources */,
+				D10000001 /* Frameworks */,
+				F10000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MozaicWindow;
+			productName = MozaicWindow;
+			productReference = C10000001 /* MozaicWindow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		H10000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = G10000001 /* Build configuration list for PBXProject "MozaicWindow" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E10000001;
+			productRefGroup = E10000009 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F10000001 /* MozaicWindow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F10000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000014 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F10000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000001 /* MozaicWindowApp.swift in Sources */,
+				A10000002 /* AppDelegate.swift in Sources */,
+				A10000003 /* MosaicType.swift in Sources */,
+				A10000004 /* OverlayConfiguration.swift in Sources */,
+				A10000005 /* ScreenCaptureService.swift in Sources */,
+				A10000006 /* PermissionManager.swift in Sources */,
+				A10000007 /* FilterProcessor.swift in Sources */,
+				A10000008 /* OverlayWindow.swift in Sources */,
+				A10000009 /* OverlayContentView.swift in Sources */,
+				A10000010 /* WindowManager.swift in Sources */,
+				A10000011 /* MenuBarView.swift in Sources */,
+				A10000012 /* OverlayContextMenu.swift in Sources */,
+				A10000013 /* NSScreen+DisplayID.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		G10000002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		G10000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		G10000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MozaicWindow/MozaicWindow.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MozaicWindow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mozaicwindow.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		G10000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MozaicWindow/MozaicWindow.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MozaicWindow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mozaicwindow.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		G10000001 /* Build configuration list for PBXProject "MozaicWindow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G10000002 /* Debug */,
+				G10000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		G10000003 /* Build configuration list for PBXNativeTarget "MozaicWindow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G10000005 /* Debug */,
+				G10000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = H10000001 /* Project object */;
+}
