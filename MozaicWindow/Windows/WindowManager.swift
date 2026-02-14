@@ -58,21 +58,29 @@ final class WindowManager: ObservableObject {
     }
 
     private func distributeFrame(_ frame: CIImage, displayID: CGDirectDisplayID) {
+        let frameExtent = frame.extent
+
         for window in windows {
             guard let screen = window.screen, screen.displayID == displayID else { continue }
 
             let windowRect = window.frame
             let screenFrame = screen.frame
-            let backingScale = screen.backingScaleFactor
 
-            // Convert NSWindow coords (bottom-left origin) to screen capture coords (top-left origin)
-            let captureX = (windowRect.origin.x - screenFrame.origin.x) * backingScale
-            let captureY = (screenFrame.height - (windowRect.origin.y - screenFrame.origin.y) - windowRect.height) * backingScale
-            let captureW = windowRect.width * backingScale
-            let captureH = windowRect.height * backingScale
+            // Use actual captured frame size for scale (handles notch, menu bar differences)
+            let scaleX = frameExtent.width / screenFrame.width
+            let scaleY = frameExtent.height / screenFrame.height
+
+            // Both NSWindow and CIImage use bottom-left origin, no Y flip needed
+            let localX = windowRect.origin.x - screenFrame.origin.x
+            let localY = windowRect.origin.y - screenFrame.origin.y
+
+            let captureX = localX * scaleX
+            let captureY = localY * scaleY
+            let captureW = windowRect.width * scaleX
+            let captureH = windowRect.height * scaleY
 
             let cropRect = CGRect(x: captureX, y: captureY, width: captureW, height: captureH)
-                .intersection(frame.extent)
+                .intersection(frameExtent)
 
             guard !cropRect.isEmpty else { continue }
 

@@ -19,24 +19,13 @@ enum OverlayContextMenu {
         typeItem.submenu = typeMenu
         menu.addItem(typeItem)
 
-        // Intensity submenu
-        let intensityItem = NSMenuItem(title: "Intensity", action: nil, keyEquivalent: "")
-        let intensityMenu = NSMenu()
-        let range = configuration.mosaicType.intensityRange
-        let step = (range.upperBound - range.lowerBound) / 4
-        for i in 0...4 {
-            let value = range.lowerBound + step * Double(i)
-            let label = String(format: "%.0f", value)
-            let item = NSMenuItem(title: label, action: #selector(MenuActionTarget.selectIntensity(_:)), keyEquivalent: "")
-            item.representedObject = IntensitySelection(value: value, configuration: configuration)
-            item.target = MenuActionTarget.shared
-            if abs(configuration.intensity - value) < step / 2 {
-                item.state = .on
-            }
-            intensityMenu.addItem(item)
-        }
-        intensityItem.submenu = intensityMenu
-        menu.addItem(intensityItem)
+        menu.addItem(.separator())
+
+        // Intensity slider
+        let sliderItem = NSMenuItem()
+        let sliderView = IntensitySliderView(configuration: configuration)
+        sliderItem.view = sliderView
+        menu.addItem(sliderItem)
 
         menu.addItem(.separator())
 
@@ -59,6 +48,73 @@ enum OverlayContextMenu {
     }
 }
 
+// MARK: - Intensity Slider View
+
+private final class IntensitySliderView: NSView {
+    private let configuration: OverlayConfiguration
+    private let slider: NSSlider
+    private let label: NSTextField
+    private let valueLabel: NSTextField
+
+    init(configuration: OverlayConfiguration) {
+        self.configuration = configuration
+
+        let range = configuration.mosaicType.intensityRange
+
+        label = NSTextField(labelWithString: "Intensity")
+        label.font = .menuFont(ofSize: 13)
+
+        valueLabel = NSTextField(labelWithString: String(format: "%.0f", configuration.intensity))
+        valueLabel.font = .monospacedDigitSystemFont(ofSize: 12, weight: .regular)
+        valueLabel.alignment = .right
+
+        slider = NSSlider(value: configuration.intensity,
+                         minValue: range.lowerBound,
+                         maxValue: range.upperBound,
+                         target: nil,
+                         action: nil)
+        slider.isContinuous = true
+
+        super.init(frame: NSRect(x: 0, y: 0, width: 220, height: 50))
+
+        slider.target = self
+        slider.action = #selector(sliderChanged(_:))
+
+        addSubview(label)
+        addSubview(valueLabel)
+        addSubview(slider)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        valueLabel.translatesAutoresizingMaskIntoConstraints = false
+        slider.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+
+            valueLabel.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            valueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            valueLabel.widthAnchor.constraint(equalToConstant: 40),
+
+            slider.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 4),
+            slider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            slider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            slider.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6),
+        ])
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc private func sliderChanged(_ sender: NSSlider) {
+        let value = sender.doubleValue
+        configuration.intensity = value
+        valueLabel.stringValue = String(format: "%.0f", value)
+    }
+}
+
 // MARK: - Selection Types
 
 private final class TypeSelection: NSObject {
@@ -66,15 +122,6 @@ private final class TypeSelection: NSObject {
     let configuration: OverlayConfiguration
     init(type: MosaicType, configuration: OverlayConfiguration) {
         self.type = type
-        self.configuration = configuration
-    }
-}
-
-private final class IntensitySelection: NSObject {
-    let value: Double
-    let configuration: OverlayConfiguration
-    init(value: Double, configuration: OverlayConfiguration) {
-        self.value = value
         self.configuration = configuration
     }
 }
@@ -98,11 +145,6 @@ private final class MenuActionTarget: NSObject {
         selection.configuration.setMosaicType(selection.type)
     }
 
-    @objc func selectIntensity(_ sender: NSMenuItem) {
-        guard let selection = sender.representedObject as? IntensitySelection else { return }
-        selection.configuration.intensity = selection.value
-    }
-
     @objc func toggleLock(_ sender: NSMenuItem) {
         guard let selection = sender.representedObject as? LockSelection else { return }
         let newLocked = !selection.configuration.isLocked
@@ -116,7 +158,6 @@ private final class MenuActionTarget: NSObject {
 
     @objc func closeWindow(_ sender: NSMenuItem) {
         guard let window = sender.representedObject as? OverlayWindow else { return }
-        // Find the window manager via the app delegate
         guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else { return }
         appDelegate.windowManager.removeWindow(window)
     }
