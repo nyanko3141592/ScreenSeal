@@ -14,7 +14,7 @@
 - **複数ウィンドウ** - 同時に複数のモザイク領域を配置可能
 - **メニューバー管理** - ウィンドウの一覧表示、表示/非表示の切り替え
 - **マルチディスプレイ対応** - 複数モニタ環境でも動作
-- **画面収録から除外** - モザイクウィンドウ自体は画面キャプチャに映らない
+- **レイアウトプリセット** - ウィンドウ配置を保存して一発で呼び出し（複数登録可能）
 - **設定の永続化** - モザイクタイプと強度はアプリ終了後も保持
 
 ## Requirements
@@ -24,7 +24,7 @@
 
 ## Installation
 
-[Releases](https://github.com/nyanko3141592/mozaicWindow/releases) ページから最新の `ScreenSeal.zip` をダウンロードして解凍し、`ScreenSeal.app` を Applications フォルダに移動してください。
+[Releases](https://github.com/nyanko3141592/ScreenSeal/releases) ページから最新の `ScreenSeal.zip` をダウンロードして解凍し、`ScreenSeal.app` を Applications フォルダに移動してください。
 
 ## Usage
 
