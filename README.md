@@ -2,38 +2,40 @@
 
 # ScreenSeal
 
-画面上の機密情報をモザイクで隠すための macOS メニューバーアプリ。
+A macOS menu bar app for hiding sensitive information on screen with mosaic overlays.
 
-画面収録やスクリーンショット撮影時に、ScreenSeal のモザイクウィンドウを配置することで、パスワードや個人情報などを安全に隠せます。モザイクウィンドウ自体はスクリーンショットや画面共有に映らず、モザイク効果のみが反映されます。
+Place ScreenSeal's mosaic windows over passwords, personal data, or other sensitive content during screen recordings and screenshots. The mosaic window itself is invisible to screenshots and screen sharing — only the mosaic effect is captured.
+
+[日本語版 README はこちら](README.ja.md)
 
 ## Features
 
-- **リアルタイムモザイク** - 背面の画面内容をリアルタイムにキャプチャしてモザイク処理
-- **3種類のフィルター** - ピクセル化 / ガウスぼかし / クリスタライズ
-- **強度調整** - 右クリックメニューのスライダーまたはスクロールホイールで調整
-- **複数ウィンドウ** - 同時に複数のモザイク領域を配置可能
-- **メニューバー管理** - ウィンドウの一覧表示、表示/非表示の切り替え
-- **マルチディスプレイ対応** - 複数モニタ環境でも動作
-- **レイアウトプリセット** - ウィンドウ配置を保存して一発で呼び出し（複数登録可能）
-- **設定の永続化** - モザイクタイプと強度はアプリ終了後も保持
+- **Real-time Mosaic** - Captures and pixelates the screen content behind the window in real time
+- **3 Filter Types** - Pixellate / Gaussian Blur / Crystallize
+- **Intensity Control** - Adjust via right-click menu slider or scroll wheel
+- **Multiple Windows** - Place multiple mosaic regions simultaneously
+- **Menu Bar Management** - List all windows, toggle visibility
+- **Multi-Display Support** - Works across multiple monitors
+- **Layout Presets** - Save and instantly recall window arrangements (multiple presets supported)
+- **Persistent Settings** - Mosaic type and intensity are preserved across app restarts
 
 ## Requirements
 
-- macOS 13.0 (Ventura) 以降
-- Screen Recording 権限（初回起動時にシステムダイアログが表示されます）
+- macOS 13.0 (Ventura) or later
+- Screen Recording permission (a system dialog will appear on first launch)
 
 ## Installation
 
-[Releases](https://github.com/nyanko3141592/ScreenSeal/releases) ページから最新の `ScreenSeal.zip` をダウンロードして解凍し、`ScreenSeal.app` を Applications フォルダに移動してください。
+Download the latest `ScreenSeal.zip` from the [Releases](https://github.com/nyanko3141592/ScreenSeal/releases) page, extract it, and move `ScreenSeal.app` to your Applications folder.
 
 ## Usage
 
-1. アプリを起動するとメニューバーにアイコンが表示されます
-2. メニューから **New Mosaic Window** をクリックしてモザイクウィンドウを作成
-3. ウィンドウをドラッグして隠したい箇所に配置、端をドラッグしてリサイズ
-4. **右クリック**でコンテキストメニューを開き、フィルタータイプや強度を変更
-5. **スクロールホイール**でも強度を素早く調整可能
-6. メニューバーからウィンドウの表示/非表示を切り替え
+1. Launch the app — an icon appears in the menu bar
+2. Click **New Mosaic Window** from the menu to create a mosaic window
+3. Drag the window to cover the area you want to hide; drag the edges to resize
+4. **Right-click** to open the context menu and change the filter type or intensity
+5. Use the **scroll wheel** to quickly adjust intensity
+6. Toggle window visibility from the menu bar
 
 ## Build
 
@@ -44,9 +46,9 @@ xcodebuild -project ScreenSeal.xcodeproj -scheme ScreenSeal -configuration Relea
 ## Tech Stack
 
 - Swift / SwiftUI / AppKit
-- ScreenCaptureKit (画面キャプチャ)
-- Core Image (モザイクフィルター処理)
-- Metal (GPU アクセラレーション)
+- ScreenCaptureKit (screen capture)
+- Core Image (mosaic filter processing)
+- Metal (GPU acceleration)
 
 ## License
 
